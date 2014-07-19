@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :microposts, dependent: :destroy
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
@@ -15,6 +16,12 @@ def User.new_remember_token
 
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def feed
+    # このコードは準備段階です。
+    # 完全な実装は【11】「ユーザーをフォローする」を参照してください。
+    Micropost.where("user_id = ?", id)
   end
 
 private
