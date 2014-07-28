@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'faker','1.1.2'
 gem 'will_paginate', '3.0.4'
 gem 'bootstrap-will_paginate', '0.0.9'
+gem 'paperclip'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -18,6 +19,16 @@ group :development, :test do
   # gem 'spork-rails', '4.0.0'
   # gem 'guard-spork', '1.5.0'
   # gem 'childprocess', '0.3.6'
+end
+
+group :development do
+  # エラー画面をわかりやすく整形してくれる
+  gem 'better_errors'
+
+  # better_errorsの画面上にirb/pry(PERL)を表示する
+  gem 'binding_of_caller'
+
+  gem 'rails-footnotes'
 end
 
 group :test do
